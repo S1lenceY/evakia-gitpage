@@ -201,28 +201,28 @@ const Contactanos = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebookF className="text-2xl px-1 pt-1 bg-white text-black rounded" />
+              <FaFacebookF className="text-2xl px-1 pt-1 bg-white text-black rounded hover:scale-95 duration-200" />
             </a>
             <a
               href="https://www.tiktok.com/@evakia2023"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTiktok className="text-2xl p-1 bg-white text-black rounded" />
+              <FaTiktok className="text-2xl p-1 bg-white text-black rounded hover:scale-95 duration-200" />
             </a>
             <a
               href="https://wa.me/+51907529936"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaWhatsapp className="text-2xl p-1 bg-white text-black rounded" />
+              <FaWhatsapp className="text-2xl p-1 bg-white text-black rounded hover:scale-95 duration-200" />
             </a>
             <a
               href="https://www.instagram.com/evakia_inmoviliaria_"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaInstagram className="text-2xl p-1 bg-white text-black rounded" />
+              <FaInstagram className="text-2xl p-1 bg-white text-black rounded hover:scale-95 duration-200" />
             </a>
           </div>
         </div>

@@ -9,7 +9,7 @@ const Mapa = () => {
 
   return (
     <div className="flex flex-col lg:flex-row border border-main rounded-lg overflow-hidden w-full max-w-7xl z-0">
-      <div className=" group bg-main hover:bg-transparent duration-300 flex flex-col p-10 lg:p-16 gap-4 items-center text-center lg:text-start lg:items-start justify-center h-fit lg:h-96 lg:w-1/3">
+      <div className=" group bg-main hover:bg-transparent duration-300 flex flex-col p-7 sm:p-10 lg:p-16 gap-4 items-center text-center lg:text-start lg:items-start justify-center h-fit lg:h-96 lg:w-1/3">
         <span className="text-3xl text-mainSection group-hover:text-white font-medium  duration-300">
           Evakia Inmobiliaria
         </span>
@@ -18,7 +18,7 @@ const Mapa = () => {
         </p>
         <a
           className="rounded-lg bg-mainSection items-center self-center w-full max-w-96 group-hover:bg-transparent group-hover:border-main group-hover:text-main justify-center flex border-2 border-mainSection shadow-lg text-white duration-300 cursor-pointer active:scale-[0.98] mt-3"
-          href="https://www.google.com/maps/dir/-6.760419,-79.8377831/El%C3%ADas+Aguirre+300,+Reque+14801/"
+          href="https://www.google.com/maps/dir//El%C3%ADas+Aguirre+300,+Reque+14801/"
           target="_blank"
           rel="noopener noreferrer"
         >
