@@ -11,10 +11,31 @@ import Costos from "../components/Costos";
 const Servicios = () => {
   const [loaded, setLoaded] = useState(false);
   const servicioRef = useRef(null);
+  const lotizacionRef = useRef(null);
+  const lotesRef = useRef(null);
+  const construyeRef = useRef(null);
 
   const handleScroll = () => {
     if (servicioRef.current) {
       servicioRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrollLotizacion = () => {
+    if (lotizacionRef.current) {
+      lotizacionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrollLotes = () => {
+    if (lotesRef.current) {
+      lotesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrollConstruye = () => {
+    if (construyeRef.current) {
+      construyeRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -50,7 +71,7 @@ const Servicios = () => {
               <span className="p-3 text-center text-black bg-main text-sm font-medium">
                 LOTIZACIÓN
               </span>
-              <div className="relative overflow-hidden group text-black">
+              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollLotizacion}>
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
@@ -77,7 +98,7 @@ const Servicios = () => {
               <span className="p-3 text-center text-nowrap font-medium text-black bg-main text-sm">
                 VENTA DE LOTES DE TERCEROS
               </span>
-              <div className="relative overflow-hidden group text-black">
+              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollLotes}>
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
@@ -104,7 +125,7 @@ const Servicios = () => {
               <span className="p-3 text-center text-black bg-main text-sm font-medium">
                 CONSTRUYE CON EVAKIA
               </span>
-              <div className="relative overflow-hidden group text-black">
+              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollConstruye}>
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
@@ -130,10 +151,10 @@ const Servicios = () => {
           </div>
 
           {/* Seccióñ de Beneficios */}
-          <Beneficios />
+          <Beneficios ref={lotizacionRef}/>
           <Proyectos />
-          <VentaLotes />
-          <Ofrecemos />
+          <VentaLotes ref={lotesRef}/>
+          <Ofrecemos ref={construyeRef}/>
           <Costos />
         </div>
       </div>

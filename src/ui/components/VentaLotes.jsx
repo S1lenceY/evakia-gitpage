@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import VentaTerceros1 from "/VentaTerceros/VentaTerceros1.webp";
 import VentaTerceros3 from "/VentaTerceros/VentaTerceros3.webp";
@@ -33,13 +33,13 @@ const ofrecen = [
   },
 ];
 
-const VentaLotes = () => {
+const VentaLotes = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <>
-      <div className="flex flex-col self-start mt-10">
+    <div ref={ref}>
+      <div className="flex flex-col self-start my-10" >
         <span className="text-main text-lg">EVAKIA</span>
         <span className="text-3xl font-semibold">
           Venta de lotes de terceros
@@ -93,8 +93,8 @@ const VentaLotes = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+});
 
 export default VentaLotes;

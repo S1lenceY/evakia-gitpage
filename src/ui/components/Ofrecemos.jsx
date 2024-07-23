@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import QueOfrecemos from "/Ofrecemos/QueOfrecemos.webp";
 import QueOfrecemos2 from "/Ofrecemos/QueOfrecemos2.webp";
@@ -19,13 +19,13 @@ const ofrecen = [
   },
 ];
 
-const Ofrecemos = () => {
+const Ofrecemos = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <>
-      <div className="flex flex-col self-start mt-10">
+    <div ref={ref}>
+      <div className="flex flex-col self-start my-10">
         <span className="text-main text-lg">Construye con EVAKIA</span>
         <span className="text-3xl font-semibold">¿Qué ofrecemos? </span>
       </div>
@@ -71,8 +71,8 @@ const Ofrecemos = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+});
 
 export default Ofrecemos;

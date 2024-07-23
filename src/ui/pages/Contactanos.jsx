@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import Notificacion from "../components/Notificacion";
 import emailjs from "@emailjs/browser";
+import Mapa from "../components/Mapa";
 
 const Contactanos = () => {
   //Scroll
@@ -17,7 +18,7 @@ const Contactanos = () => {
 
   const handleScroll = () => {
     if (formularioSection.current) {
-      formularioSection.current.scrollIntoView({ behavior: "smooth" });
+      formularioSection.current.scrollIntoView({ behavior: "smooth", block: "center"});
     }
   };
 
@@ -80,8 +81,7 @@ const Contactanos = () => {
       </div>
 
       <div
-        className="w-full bg-mainSection flex flex-col text-white px-5 py-16 sm:px-10 lg:p-20 gap-20"
-        ref={formularioSection}
+        className="w-full bg-mainSection flex flex-col text-white px-5 py-16 sm:px-10 lg:p-20 gap-20 "
       >
         <div className="flex flex-col sm:flex-row justify-between lg:justify-around gap-10 lg:gap-0">
           <div className="flex flex-col justify-between">
@@ -225,6 +225,10 @@ const Contactanos = () => {
               <FaInstagram className="text-2xl p-1 bg-white text-black rounded" />
             </a>
           </div>
+        </div>
+
+        <div ref={formularioSection} className="flex justify-center items-center">
+          <Mapa />
         </div>
       </div>
     </div>

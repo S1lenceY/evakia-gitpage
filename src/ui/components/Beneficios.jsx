@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PorticoEntrada from "/Beneficios/PorticoEntrada.webp";
 import Colegio from "/Beneficios/Colegio.webp";
@@ -58,7 +58,7 @@ const servicios = [
   },
 ];
 
-const Beneficios = () => {
+const Beneficios = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [shouldScroll, setShouldScroll] = useState(false);
@@ -98,8 +98,8 @@ const Beneficios = () => {
   }, [visibleServicios, shouldScroll, activeIndex, previousIndex]);
 
   return (
-    <>
-      <div className="flex flex-col self-start mt-10">
+    <div ref={ref}>
+      <div className="flex flex-col self-start my-10">
         <span className="text-main text-lg">Lotización</span>
         <span className="text-3xl font-semibold">Servicios</span>
       </div>
@@ -151,8 +151,8 @@ const Beneficios = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+});
 
 export default Beneficios;
