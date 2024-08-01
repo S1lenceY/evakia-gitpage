@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import VentaTerceros1 from "/VentaTerceros/VentaTerceros1.webp";
 import VentaTerceros3 from "/VentaTerceros/VentaTerceros3.webp";
@@ -36,6 +36,18 @@ const ofrecen = [
 const VentaLotes = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
+
+  const handleSpanClick = (index) => {
+    setActiveIndex(index);
+  };
 
   return (
     <div ref={ref}>
@@ -83,7 +95,7 @@ const VentaLotes = forwardRef((props, ref) => {
           {ofrecen.map((_, index) => (
             <span
               key={index}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => handleSpanClick(index)}
               className={`rounded-full w-7 h-7 cursor-pointer ${
                 activeIndex === index
                   ? "bg-main"

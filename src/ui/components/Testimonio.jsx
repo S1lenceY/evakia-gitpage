@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Testimonio1 from "/Testimonio/Testimonio1.webp";
 import Testimonio2 from "/Testimonio/Testimonio2.webp";
@@ -26,6 +26,15 @@ const Testimonio = () => {
   const [loaded, setLoaded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonios.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const handleButtonClick = (index) => {
     if (index > currentIndex) {

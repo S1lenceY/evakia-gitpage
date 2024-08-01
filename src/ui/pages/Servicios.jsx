@@ -47,7 +47,7 @@ const Servicios = () => {
           <span className="font-semibold text-lg sm:text-2xl uppercase">
             SIEMPRE ENFOCADOS EN TI
           </span>
-          <span className="font-bold text-5xl sm:text-[85px] mt-4 mb-7">
+          <span className="font-bold text-5xl sm:text-[85px] mt-4 mb-7 xl:w-2/3">
             CONOCE NUESTROS SERVICIOS
           </span>
           <button
@@ -71,14 +71,17 @@ const Servicios = () => {
               <span className="p-3 text-center text-black bg-main text-sm font-medium">
                 LOTIZACIÓN
               </span>
-              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollLotizacion}>
+              <div
+                className="relative overflow-hidden group text-black cursor-pointer"
+                onClick={handleScrollLotizacion}
+              >
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
                   </div>
                 )}
                 <img
-                  src={Servicio1}
+                  src={Servicio2}
                   className={`h-96 lg:h-[550px] w-full object-cover border-main border group-hover:scale-110 group-hover:rotate-3 transition-all ${
                     loaded ? "block" : "hidden"
                   }`}
@@ -98,14 +101,17 @@ const Servicios = () => {
               <span className="p-3 text-center text-nowrap font-medium text-black bg-main text-sm">
                 VENTA DE LOTES DE TERCEROS
               </span>
-              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollLotes}>
+              <div
+                className="relative overflow-hidden group text-black cursor-pointer"
+                onClick={handleScrollLotes}
+              >
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
                   </div>
                 )}
                 <img
-                  src={Servicio2}
+                  src={Servicio1}
                   className={`h-96 lg:h-[550px] w-full object-cover border-main border group-hover:scale-110 group-hover:rotate-3 transition-all ${
                     loaded ? "block" : "hidden"
                   }`}
@@ -125,7 +131,10 @@ const Servicios = () => {
               <span className="p-3 text-center text-black bg-main text-sm font-medium">
                 CONSTRUYE CON EVAKIA
               </span>
-              <div className="relative overflow-hidden group text-black cursor-pointer" onClick={handleScrollConstruye}>
+              <div
+                className="relative overflow-hidden group text-black cursor-pointer"
+                onClick={handleScrollConstruye}
+              >
                 {!loaded && (
                   <div className="flex flex-col bg-mainSection h-96 lg:h-[550px] border border-main object-cover p-4">
                     <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
@@ -151,10 +160,10 @@ const Servicios = () => {
           </div>
 
           {/* Seccióñ de Beneficios */}
-          <Beneficios ref={lotizacionRef}/>
+          <Beneficios ref={lotizacionRef} />
           <Proyectos />
-          <VentaLotes ref={lotesRef}/>
-          <Ofrecemos ref={construyeRef}/>
+          <VentaLotes ref={lotesRef} />
+          <Ofrecemos ref={construyeRef} />
           <Costos />
         </div>
       </div>

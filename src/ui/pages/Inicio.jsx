@@ -38,6 +38,8 @@ const Inicio = () => {
             loop
             controls
             playing
+            playsinline
+            muted
             width="100%"
             height="100%"
           />

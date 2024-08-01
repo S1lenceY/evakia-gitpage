@@ -58,7 +58,7 @@ const Conocenos = () => {
         <div className="max-w-7xl">
           <div className="grid  sm:grid-cols-4 w-full">
             <div className="border border-main col-span-2 sm:col-span-1 hidden sm:block order-last sm:order-none">
-              <ImageWithLoader src={Valores} alt="Valores" />{" "}
+              <ImageWithLoader src={Valores} alt="Valores"/>{" "}
             </div>
             <div className="border border-main flex flex-col gap-2 text-start p-7 sm:p-10 col-span-2">
               <span className="text-xl text-main">Nuestros Valores</span>

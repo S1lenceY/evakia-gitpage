@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import QueOfrecemos from "/Ofrecemos/QueOfrecemos.webp";
 import QueOfrecemos2 from "/Ofrecemos/QueOfrecemos2.webp";
@@ -22,6 +22,19 @@ const ofrecen = [
 const Ofrecemos = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
+
+  const handleSpanClick = (index) => {
+    setActiveIndex(index);
+  };
+
 
   return (
     <div ref={ref}>
@@ -63,7 +76,7 @@ const Ofrecemos = forwardRef((props, ref) => {
           {ofrecen.map((_, index) => (
             <span
               key={index}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => handleSpanClick(index)}
               className={`rounded-full w-7 h-7 cursor-pointer ${
                 activeIndex === index ? "bg-main" : "bg-gray-300 hover:scale-110"
               }`}

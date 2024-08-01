@@ -61,41 +61,27 @@ const servicios = [
 const Beneficios = forwardRef((props, ref) => {
   const [loaded, setLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [shouldScroll, setShouldScroll] = useState(false);
-  const [previousIndex, setPreviousIndex] = useState(0);
   const serviciosContainerRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % servicios.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   const handleSpanClick = (index) => {
     setActiveIndex(index);
-    setShouldScroll(true);
-    setPreviousIndex(activeIndex);
   };
 
-  const getVisibleServicios = () => {
-    const endIndex = (activeIndex + 1) * 3;
-    return servicios.slice(0, endIndex);
+  const containerVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: 20},
   };
 
-  const visibleServicios = getVisibleServicios();
-
-  useEffect(() => {
-    if (shouldScroll) {
-      let blockValue;
-      if (activeIndex === 0) {
-        blockValue = "start";
-      } else if (activeIndex === 1) {
-        blockValue = "center";
-      } else {
-        blockValue = "end";
-      }
-      serviciosContainerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: blockValue,
-        inline: "nearest",
-      });
-      setShouldScroll(false);
-    }
-  }, [visibleServicios, shouldScroll, activeIndex, previousIndex]);
+  const transition = { duration: 0.5 };
 
   return (
     <div ref={ref}>
@@ -104,49 +90,48 @@ const Beneficios = forwardRef((props, ref) => {
         <span className="text-3xl font-semibold">Servicios</span>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-10">
+      <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-10" ref={serviciosContainerRef}>
-          <AnimatePresence>
-            {visibleServicios.map((servicio, index) => (
-              <motion.div
-                key={index}
-                className="grid grid-cols-1 sm:grid-cols-2"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="border border-main p-5 sm:p-8 lg:p-10 lg:text-lg items-center justify-between flex flex-col order-last sm:order-none h-full max-h-96">
-                  <p>{servicio.text}</p>
-                  <span className="self-start text-main mt-4 text-lg lg:text-xl">
-                    {servicio.type}
-                  </span>
-                </div>
-                {!loaded && (
-                  <div className="flex flex-col bg-mainSection h-full object-cover p-4 border border-main">
-                    <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
+          <AnimatePresence mode="wait">
+            {servicios.map((servicio, index) => (
+              index === activeIndex && (
+                <motion.div
+                  key={index}
+                  className="grid grid-cols-1 sm:grid-cols-2"
+                  variants={containerVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={transition}
+                >
+                  <div className="border border-main p-5 sm:p-8 lg:p-10 lg:text-lg items-center justify-between flex flex-col order-last sm:order-none h-full max-h-96">
+                    <p>{servicio.text}</p>
+                    <span className="self-start text-main mt-4 text-lg lg:text-xl">
+                      {servicio.type}
+                    </span>
                   </div>
-                )}
-                <img
-                  src={servicio.image}
-                  alt={servicio.type}
-                  className={`border border-main h-52 sm:h-full sm:max-h-96 object-cover w-full ${
-                    loaded ? "block" : "hidden"
-                  }`}
-                  onLoad={() => setLoaded(true)}
-                />
-              </motion.div>
+                  {!loaded && (
+                    <div className="flex flex-col bg-mainSection h-full object-cover p-4 border border-main">
+                      <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
+                    </div>
+                  )}
+                  <img
+                    src={servicio.image}
+                    alt={servicio.type}
+                    className={`border border-main h-52  sm:h-96 object-cover w-full ${loaded ? "block" : "hidden"}`}
+                    onLoad={() => setLoaded(true)}
+                  />
+                </motion.div>
+              )
             ))}
           </AnimatePresence>
         </div>
-        <div className="sticky top-28 flex flex-row md:flex-col self-center md:self-start md:my-[8%] md:pl-10 gap-3 h-full">
-          {[...Array(3)].map((_, index) => (
+        <div className=" flex flex-row self-center gap-2 sm:gap-3">
+          {servicios.map((_, index) => (
             <span
               key={index}
               onClick={() => handleSpanClick(index)}
-              className={`rounded-full w-7 h-7 cursor-pointer ${
-                activeIndex >= index ? "bg-main" : "bg-gray-300 hover:scale-110"
-              }`}
+              className={`rounded-full w-7 h-7 cursor-pointer ${activeIndex === index ? "bg-main" : "bg-gray-300 hover:scale-110"}`}
             ></span>
           ))}
         </div>

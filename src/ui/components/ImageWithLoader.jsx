@@ -13,7 +13,7 @@ const ImageWithLoader = ({ src, alt, className }) => {
       <img
         src={src}
         alt={alt}
-        className={`h-full w-full object-cover ${loaded ? 'block' : 'hidden'}`}
+        className={`w-full h-full object-cover ${loaded ? 'block' : 'hidden'}`}
         onLoad={() => setLoaded(true)}
       />
     </div>
