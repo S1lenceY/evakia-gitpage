@@ -75,7 +75,6 @@ const Testimonio = () => {
             )}
             <img
               src={image}
-              alt={family}
               className={`w-full sm:max-w-60 lg:max-w-80 object-cover border border-main max-h-60 sm:max-h-full ${
                 loaded ? "block" : "hidden"
               }`}

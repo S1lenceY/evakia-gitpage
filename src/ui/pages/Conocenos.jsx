@@ -90,7 +90,7 @@ const Conocenos = () => {
               <p>Mejorar las tasas de conversión</p>
             </div>
             <div className="hidden sm:block border border-main">
-              <img src={Objetivos} className="h-full object-cover" />
+              <ImageWithLoader src={Objetivos} className="h-full object-cover" />
             </div>
           </Reveal>
           <Reveal className="grid sm:grid-cols-4 w-full">

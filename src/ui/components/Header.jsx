@@ -62,7 +62,7 @@ const Header = () => {
         hidden: { y: "-304px" },
       }}
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.5, ease: "easeInOut"}}
+      transition={{ duration: 0.35, ease: "easeInOut"}}
     >
       <div className="bg-black bg-opacity-70 flex lg:justify-between px-5 items-center w-full h-16 lg:h-20 font-DM">
         <div className="flex items-center mx-auto lg:mx-0 text-white text-xl lg:ml-10 gap-2">

@@ -119,7 +119,6 @@ const Beneficios = forwardRef((props, ref) => {
                   )}
                   <img
                     src={servicio.image}
-                    alt={servicio.type}
                     className={`border border-main h-52  sm:h-96 object-cover w-full ${loaded ? "block" : "hidden"}`}
                     onLoad={() => setLoaded(true)}
                   />
