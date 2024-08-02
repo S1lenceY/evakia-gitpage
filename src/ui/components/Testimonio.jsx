@@ -48,7 +48,7 @@ const Testimonio = () => {
   const { text, family, image } = testimonios[currentIndex];
 
   return (
-    <>
+    <div className="flex flex-col gap-10">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -58,16 +58,9 @@ const Testimonio = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-wrap font-DM mx-auto"
         >
-          <motion.div className="bg-main w-full md:w-1/4 md:h-80 h-24 flex items-center justify-center p-5 text-3xl font-semibold">
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ duration: 0.5 }}
-            >
-              Testimonios
-            </motion.span>
-          </motion.div>
+          <div className="bg-main w-full md:w-1/4 md:h-80 h-24 flex items-center justify-center p-5 text-3xl font-semibold">
+            <span>Testimonios</span>
+          </div>
 
           <div className="flex flex-col sm:flex-row w-full md:w-3/4 md:h-80">
             <div className="flex flex-col gap-5 justify-center p-10 md:p-7 border border-main overflow-hidden">
@@ -102,7 +95,7 @@ const Testimonio = () => {
           ></button>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

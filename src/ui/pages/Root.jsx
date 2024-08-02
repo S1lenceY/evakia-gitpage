@@ -39,6 +39,7 @@ const Root = () => {
           className={`absolute inset-0 ${backgroundClass} bg-cover bg-fixed`}
         />
       </AnimatePresence>
+
       <div className="relative z-10">
         <Header />
         <Outlet />

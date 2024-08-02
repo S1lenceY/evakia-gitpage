@@ -11,6 +11,7 @@ import {
 import Notificacion from "../components/Notificacion";
 import emailjs from "@emailjs/browser";
 import Mapa from "../components/Mapa";
+import Reveal from "../components/Reveal";
 
 const Contactanos = () => {
   //Scroll
@@ -18,7 +19,10 @@ const Contactanos = () => {
 
   const handleScroll = () => {
     if (formularioSection.current) {
-      formularioSection.current.scrollIntoView({ behavior: "smooth", block: "center"});
+      formularioSection.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   };
 
@@ -63,7 +67,7 @@ const Contactanos = () => {
         type={notification.type}
         removeNotif={removeNotif}
       />
-      <div className="flex justify-center px-7 sm:pl-20 md:pl-24 h-screen">
+      <Reveal className="flex justify-center px-7 sm:pl-20 md:pl-24 h-screen">
         <div className="flex flex-col self-center items-center text-center sm:text-start sm:items-start text-white w-full -translate-y-10">
           <span className="font-semibold text-lg sm:text-2xl uppercase">
             SOMOS UNA EMPRESA EN PROSPERIDAD
@@ -78,12 +82,10 @@ const Contactanos = () => {
             ¿Como llegar?
           </button>
         </div>
-      </div>
+      </Reveal>
 
-      <div
-        className="w-full bg-mainSection flex flex-col text-white px-5 py-16 sm:px-10 lg:p-20 gap-20 "
-      >
-        <div className="flex flex-col sm:flex-row justify-between lg:justify-around gap-10 lg:gap-0">
+      <div className="w-full bg-mainSection flex flex-col text-white px-5 py-16 sm:px-10 lg:p-20 gap-20 ">
+        <Reveal className="flex flex-col sm:flex-row justify-between lg:justify-around gap-10 lg:gap-0">
           <div className="flex flex-col justify-between">
             <div className="gap-7 flex flex-col items-center sm:items-start ">
               <span className="text-4xl font-medium">Contáctanos</span>
@@ -225,11 +227,16 @@ const Contactanos = () => {
               <FaInstagram className="text-2xl p-1 bg-white text-black rounded hover:scale-95 duration-200" />
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <div ref={formularioSection} className="flex justify-center items-center">
-          <Mapa />
-        </div>
+        <Reveal>
+          <div
+            ref={formularioSection}
+            className="flex justify-center items-center"
+          >
+            <Mapa />
+          </div>
+        </Reveal>
       </div>
     </div>
   );

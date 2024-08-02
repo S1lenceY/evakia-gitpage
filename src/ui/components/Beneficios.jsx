@@ -9,6 +9,8 @@ import Luz from "/Beneficios/Luz.webp";
 import Agua from "/Beneficios/Agua.webp";
 import Parque from "/Beneficios/Parque.webp";
 import ClubPrivado from "/Beneficios/ClubPrivado.webp";
+import Reveal from "../components/Reveal";
+
 
 const servicios = [
   {
@@ -85,12 +87,12 @@ const Beneficios = forwardRef((props, ref) => {
 
   return (
     <div ref={ref}>
-      <div className="flex flex-col self-start my-10">
+      <Reveal className="flex flex-col self-start my-10">
         <span className="text-main text-lg">Lotización</span>
         <span className="text-3xl font-semibold">Servicios</span>
-      </div>
+      </Reveal>
 
-      <div className="flex flex-col gap-10">
+      <Reveal className="flex flex-col gap-10">
         <div className="flex flex-col gap-10" ref={serviciosContainerRef}>
           <AnimatePresence mode="wait">
             {servicios.map((servicio, index) => (
@@ -135,7 +137,7 @@ const Beneficios = forwardRef((props, ref) => {
             ></span>
           ))}
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 });

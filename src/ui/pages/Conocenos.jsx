@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Valores from "/ValoresObjetivos/Valores.webp";
 import Objetivos from "/ValoresObjetivos/Objetivos.webp";
 import Mision from "/MisionVision/Mision.webp";
 import Vision from "/MisionVision/Vision.webp";
 import ImageWithLoader from "../components/ImageWithLoader";
+import Reveal from "../components/Reveal";
 
 const Conocenos = () => {
   const QuienesSomosRef = useRef(null);
@@ -18,19 +19,21 @@ const Conocenos = () => {
     <div className="w-full flex flex-col font-DM">
       <div className="flex justify-center px-7 sm:pl-24 h-screen">
         {/* Encabezado de CONOCENOS */}
-        <div className="flex flex-col self-center items-center text-center sm:text-start sm:items-start text-white w-full -translate-y-10">
-          <span className="font-semibold text-lg sm:text-2xl uppercase ">
-            UNA EMPRESA COMPROMETIDA, SEGURA Y CONFIABLE
-          </span>
-          <span className="font-bold text-6xl sm:text-8xl mt-2 mb-7">
-            Descubre EVAKIA
-          </span>
-          <button
-            className="bg-main text-lg text-white font-bold py-3 px-20 sm:px-24 rounded-full shadow-lg shadow-neutral-950 transform transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 "
-            onClick={handleScroll}
-          >
-            Empieza aquí
-          </button>
+        <div className=" self-center text-white w-full -translate-y-10">
+          <Reveal className="flex flex-col items-center sm:items-start text-center sm:text-start">
+            <span className="font-semibold text-lg sm:text-2xl uppercase ">
+              UNA EMPRESA COMPROMETIDA, SEGURA Y CONFIABLE
+            </span>
+            <span className="font-bold text-6xl sm:text-8xl mt-2 mb-7">
+              Descubre EVAKIA
+            </span>
+            <button
+              className="bg-main text-lg w-fit text-white font-bold py-3 px-20 sm:px-24 rounded-full shadow-lg shadow-neutral-950 transform transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 "
+              onClick={handleScroll}
+            >
+              Empieza aquí
+            </button>
+          </Reveal>
         </div>
       </div>
 
@@ -39,7 +42,7 @@ const Conocenos = () => {
         ref={QuienesSomosRef}
       >
         {/* Seccióñ de CONOCENOS */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 w-full max-w-7xl">
+        <Reveal className="grid grid-cols-1 sm:grid-cols-4 w-full max-w-7xl">
           <div className="bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
             ¿Quiénes Somos?
           </div>
@@ -52,13 +55,13 @@ const Conocenos = () => {
               cliente.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Seccióñ de Valores */}
         <div className="max-w-7xl">
-          <div className="grid  sm:grid-cols-4 w-full">
+          <Reveal className="grid  sm:grid-cols-4 w-full">
             <div className="border border-main col-span-2 sm:col-span-1 hidden sm:block order-last sm:order-none">
-              <ImageWithLoader src={Valores} alt="Valores"/>{" "}
+              <ImageWithLoader src={Valores} alt="Valores" />{" "}
             </div>
             <div className="border border-main flex flex-col gap-2 text-start p-7 sm:p-10 col-span-2">
               <span className="text-xl text-main">Nuestros Valores</span>
@@ -72,8 +75,8 @@ const Conocenos = () => {
             <div className="col-span-2 sm:order-none sm:col-span-1 order-first bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
               Nuestros Valores y Objetivos
             </div>
-          </div>
-          <div className="grid sm:grid-cols-4 w-full">
+          </Reveal>
+          <Reveal className="grid sm:grid-cols-4 w-full">
             <div className="border border-main flex flex-col gap-2 text-start justify-center p-7 sm:p-5 md:p-10">
               <span className="text-xl text-main">01</span>
               <p>Aumentar el alcance de la publicidad</p>
@@ -89,8 +92,8 @@ const Conocenos = () => {
             <div className="hidden sm:block border border-main">
               <img src={Objetivos} className="h-full object-cover" />
             </div>
-          </div>
-          <div className="grid sm:grid-cols-4 w-full">
+          </Reveal>
+          <Reveal className="grid sm:grid-cols-4 w-full">
             <div className="border border-main flex flex-col gap-2 text-start p-7 sm:p-5 md:p-10 justify-center">
               <span className="text-xl text-main">04</span>
               <p>Expandir la base de clientes</p>
@@ -107,12 +110,12 @@ const Conocenos = () => {
               <span className="text-xl text-main">07</span>
               <p>Impulsar el entusiasmo y compromiso del equipo de ventas</p>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Seccióñ de Mision y Vision */}
         <div className="max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-4">
+          <Reveal className="grid grid-cols-1 md:grid-cols-4">
             <div className="bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
               Misión y Visión
             </div>
@@ -135,8 +138,8 @@ const Conocenos = () => {
                 <ImageWithLoader src={Mision} alt="Mision" />{" "}
               </div>
             </div>
-          </div>
-          <div className="flex flex-col sm:flex-row">
+          </Reveal>
+          <Reveal className="flex flex-col sm:flex-row">
             <div className="border hidden sm:block border-main sm:w-2/5">
               <ImageWithLoader src={Vision} alt="Vision" />{" "}
             </div>
@@ -155,7 +158,7 @@ const Conocenos = () => {
                 nuestro éxito.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </div>

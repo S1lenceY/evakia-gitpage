@@ -3,19 +3,20 @@ import ProyectoEvakia from "/Proyectos/ProyectoEvakia.webp";
 import ProyectoEvakia2 from "/Proyectos/ProyectoEvakia2.webp";
 import ProyectoEvakia3 from "/Proyectos/ProyectoEvakia3.webp";
 import ProyectoNuevoAmanecer from "/Proyectos/ProyectoNuevoAmanecer.webp";
+import Reveal from "../components/Reveal";
 
 const Proyectos = () => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <>
-      <div className="flex flex-col self-start mt-10">
+    <div className="mt-10">
+      <Reveal className="flex flex-col mb-10">
         <span className="text-main text-lg">Lotización</span>
         <span className="text-3xl font-semibold">Proyectos</span>
-      </div>
+      </Reveal>
 
       <div className="flex flex-col gap-10 w-full">
-        <div className="grid  md:grid-cols-4 w-full mb-10">
+        <Reveal className="grid  md:grid-cols-4 w-full mb-10">
           <div className=" col-span-2 md:col-span-1 bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
             Proyecto Nuevo Amanecer
           </div>
@@ -56,9 +57,9 @@ const Proyectos = () => {
               onLoad={() => setLoaded(true)}
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid  md:grid-cols-4 w-full">
+        <Reveal className="grid  md:grid-cols-4 w-full">
           <div className=" col-span-2 md:col-span-1 bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
             Proyecto EVAKIA
           </div>
@@ -99,9 +100,9 @@ const Proyectos = () => {
               onLoad={() => setLoaded(true)}
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid  md:grid-cols-4 w-full">
+        <Reveal className="grid  md:grid-cols-4 w-full">
           <div className=" col-span-2 md:col-span-1 bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10 lg:order-last">
             Proyecto EVAKIA
           </div>
@@ -142,9 +143,9 @@ const Proyectos = () => {
               onLoad={() => setLoaded(true)}
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid  md:grid-cols-4 w-full">
+        <Reveal className="grid  md:grid-cols-4 w-full">
           <div className=" col-span-2 md:col-span-1 bg-main flex justify-center text-center text-3xl items-center font-bold p-7 sm:p-10">
             Proyecto EVAKIA
           </div>
@@ -185,9 +186,9 @@ const Proyectos = () => {
               onLoad={() => setLoaded(true)}
             />
           </div>
-        </div>
+        </Reveal>
       </div>
-    </>
+    </div>
   );
 };
 

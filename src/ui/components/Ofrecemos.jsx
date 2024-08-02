@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import QueOfrecemos from "/Ofrecemos/QueOfrecemos.webp";
 import QueOfrecemos2 from "/Ofrecemos/QueOfrecemos2.webp";
 import QueOfrecemos3 from "/Ofrecemos/QueOfrecemos3.webp";
+import Reveal from "../components/Reveal";
 
 const ofrecen = [
   {
@@ -38,12 +39,12 @@ const Ofrecemos = forwardRef((props, ref) => {
 
   return (
     <div ref={ref}>
-      <div className="flex flex-col self-start my-10">
+      <Reveal className="flex flex-col self-start my-10">
         <span className="text-main text-lg">Construye con EVAKIA</span>
         <span className="text-3xl font-semibold">¿Qué ofrecemos? </span>
-      </div>
+      </Reveal>
 
-      <div className="flex flex-col md:flex-row gap-10 mt-5">
+      <Reveal className="flex flex-col md:flex-row gap-10 mt-5">
         <div className="flex flex-col gap-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -83,7 +84,7 @@ const Ofrecemos = forwardRef((props, ref) => {
             ></span>
           ))}
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 });

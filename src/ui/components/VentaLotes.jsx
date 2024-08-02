@@ -2,6 +2,7 @@ import React, { useState, forwardRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import VentaTerceros1 from "/VentaTerceros/VentaTerceros1.webp";
 import VentaTerceros3 from "/VentaTerceros/VentaTerceros3.webp";
+import Reveal from "../components/Reveal";
 
 const ofrecen = [
   {
@@ -51,14 +52,14 @@ const VentaLotes = forwardRef((props, ref) => {
 
   return (
     <div ref={ref}>
-      <div className="flex flex-col self-start my-10" >
+      <Reveal className="flex flex-col self-start my-10" >
         <span className="text-main text-lg">EVAKIA</span>
         <span className="text-3xl font-semibold">
           Venta de lotes de terceros
         </span>
-      </div>
+      </Reveal>
 
-      <div className="flex flex-col md:flex-row gap-10 mt-5">
+      <Reveal className="flex flex-col md:flex-row gap-10 mt-5">
         <div className="flex flex-col gap-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -104,7 +105,7 @@ const VentaLotes = forwardRef((props, ref) => {
             ></span>
           ))}
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 });

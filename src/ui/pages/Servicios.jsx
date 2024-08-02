@@ -7,6 +7,7 @@ import Proyectos from "../components/Proyectos";
 import VentaLotes from "../components/VentaLotes";
 import Ofrecemos from "../components/Ofrecemos";
 import Costos from "../components/Costos";
+import Reveal from "../components/Reveal";
 
 const Servicios = () => {
   const [loaded, setLoaded] = useState(false);
@@ -41,21 +42,23 @@ const Servicios = () => {
 
   return (
     <div className="w-full flex flex-col font-DM">
-      <div className="flex justify-center px-7 sm:pl-24 h-screen">
+      <div className="flex justify-center px-7 sm:px-24 h-screen">
         {/* Encabezado de CONOCENOS */}
-        <div className="flex flex-col self-center  items-center text-center sm:text-start sm:items-start text-white w-full -translate-y-10">
-          <span className="font-semibold text-lg sm:text-2xl uppercase">
-            SIEMPRE ENFOCADOS EN TI
-          </span>
-          <span className="font-bold text-5xl sm:text-[85px] mt-4 mb-7 xl:w-2/3">
-            CONOCE NUESTROS SERVICIOS
-          </span>
-          <button
-            className="bg-main text-lg text-white font-bold py-3 px-20 sm:px-24 rounded-full shadow-lg shadow-neutral-950 transform transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 "
-            onClick={handleScroll}
-          >
-            Descubrir
-          </button>
+        <div className=" self-center  text-white w-full -translate-y-10">
+          <Reveal className="flex flex-col items-center sm:items-start text-center sm:text-start">
+            <span className="font-semibold text-lg sm:text-2xl uppercase">
+              SIEMPRE ENFOCADOS EN TI
+            </span>
+            <span className="font-bold text-5xl sm:text-[85px] mt-4 mb-7">
+              CONOCE NUESTROS SERVICIOS
+            </span>
+            <button
+              className="bg-main text-lg text-white font-bold py-3 px-20 sm:px-24 rounded-full shadow-lg shadow-neutral-950 transform transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 "
+              onClick={handleScroll}
+            >
+              Descubrir
+            </button>
+          </Reveal>
         </div>
       </div>
 
@@ -65,8 +68,8 @@ const Servicios = () => {
       >
         {/* Seccióñ de SERVICIOS */}
         <div className="max-w-7xl gap-10 flex flex-col items-center">
-          <span className="text-3xl font-semibold">Servicios</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <Reveal className="text-3xl font-semibold">Servicios</Reveal>
+          <Reveal className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             <div className="grid gap-5">
               <span className="p-3 text-center text-black bg-main text-sm font-medium">
                 LOTIZACIÓN
@@ -157,9 +160,10 @@ const Servicios = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Seccióñ de Beneficios */}
+
           <Beneficios ref={lotizacionRef} />
           <Proyectos />
           <VentaLotes ref={lotesRef} />

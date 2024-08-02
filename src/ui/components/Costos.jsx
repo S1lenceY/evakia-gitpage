@@ -5,19 +5,20 @@ import Costos3 from "/Costos/Costos3.webp";
 import Costos4 from "/Costos/Costos4.webp";
 import Costos5 from "/Costos/Costos5.webp";
 import Costos6 from "/Costos/Costos6.webp";
+import Reveal from "../components/Reveal";
 
 const Costos = () => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <>
-      <div className="flex flex-col self-start mt-10">
+    <div className="mt-10">
+      <Reveal className="flex flex-col mb-10">
         <span className="text-main text-lg">Construye con EVAKIA</span>
         <span className="text-3xl font-semibold">Costos</span>
-      </div>
+      </Reveal>
 
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-4">
+        <Reveal className="grid grid-cols-1 md:grid-cols-4">
           <div className="bg-main flex flex-col text-black justify-center gap-2 text-center items-center p-7 md:p-20">
             <span className="text-sm font-medium">Albañinería</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
@@ -45,8 +46,8 @@ const Costos = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-4 w-full">
+        </Reveal>
+        <Reveal className="grid md:grid-cols-4 w-full">
           <div className="block border border-main order-last md:order-none">
             {!loaded && (
               <div className=" bg-mainSection h-40 w-full md:h-full object-cover p-4">
@@ -85,9 +86,9 @@ const Costos = () => {
             <span className="text-sm font-medium">Albañinería</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 mt-14 md:mt-0">
+        <Reveal className="grid grid-cols-1 md:grid-cols-4 mt-14 md:mt-0">
           <div className="bg-main flex flex-col text-black justify-center gap-2 text-center items-center p-7 md:p-20">
             <span className="text-sm font-medium">Tarrajeado</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
@@ -115,8 +116,8 @@ const Costos = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-4 w-full">
+        </Reveal>
+        <Reveal className="grid md:grid-cols-4 w-full">
           <div className="block border border-main order-last md:order-none">
             {!loaded && (
               <div className=" bg-mainSection h-40 w-full md:h-full object-cover p-4">
@@ -155,9 +156,9 @@ const Costos = () => {
             <span className="text-sm font-medium">Tarrajeado</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 mt-14 md:mt-0">
+        <Reveal className="grid grid-cols-1 md:grid-cols-4 mt-14 md:mt-0">
           <div className="bg-main flex flex-col text-black justify-center gap-2 text-center items-center p-7 md:p-20">
             <span className="text-sm font-medium">Tarrajeado + Pintura</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
@@ -185,8 +186,8 @@ const Costos = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-4 w-full">
+        </Reveal>
+        <Reveal className="grid md:grid-cols-4 w-full">
           <div className="block border border-main order-last md:order-none">
             {!loaded && (
               <div className=" bg-mainSection h-40 w-full md:h-full object-cover p-4">
@@ -225,8 +226,8 @@ const Costos = () => {
             <span className="text-sm font-medium">Tarrajeado + Pintura</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
           </div>
-        </div>
-        <div className="grid md:grid-cols-4 w-full mt-14 md:mt-0">
+        </Reveal>
+        <Reveal className="grid md:grid-cols-4 w-full mt-14 md:mt-0">
           <div className="bg-main flex-col text-black justify-center gap-2 text-center items-center p-7 md:p-20 flex">
             <span className="text-sm font-medium">Tarrajeado + Pintura</span>
             <span className="text-3xl font-bold text-white">Modulo M2</span>
@@ -266,9 +267,9 @@ const Costos = () => {
               onLoad={() => setLoaded(true)}
             />
           </div>
-        </div>
+        </Reveal>
       </div>
-    </>
+    </div>
   );
 };
 
