@@ -30,12 +30,28 @@ const Contactanos = () => {
   const form = useRef();
   const [notification, setNotification] = useState({ message: "", type: "" });
 
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_lastname: "",
+    user_email: "",
+    user_number: "",
+    user_location: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_c0faf9g",
+        "service_2fxuufg",
         "template_51j5cah",
         form.current,
         "Yois0Jd_620VgS4k7"
@@ -45,6 +61,13 @@ const Contactanos = () => {
           setNotification({
             message: "Email enviado correctamente",
             type: "success",
+          });
+          setFormData({
+            user_name: "",
+            user_lastname: "",
+            user_email: "",
+            user_number: "",
+            user_location: ""
           });
         },
         (error) => {
@@ -151,52 +174,65 @@ const Contactanos = () => {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full self-center max-w-md">
-            {/* No olvidar colocar ref={form} onSubmit={sendEmail} y cambiar el div por un "form"*/}
+          <form
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full self-center max-w-md"
+            ref={form}
+            onSubmit={sendEmail}
+          >
             <div className="border-b border-main">
-              <label className=" text-main block mb-2">Nombre</label>
+              <label className="text-main block mb-2">Nombre</label>
               <input
                 className="border-b border-b-transparent focus:border-b-main w-full bg-transparent outline-none pb-1"
                 type="text"
                 name="user_name"
+                value={formData.user_name}
+                onChange={handleChange}
               />
             </div>
             <div className="border-b border-main">
-              <label className=" text-main block mb-2">Apellido</label>
+              <label className="text-main block mb-2">Apellido</label>
               <input
                 className="border-b border-b-transparent focus:border-b-main w-full bg-transparent outline-none pb-1"
                 type="text"
                 name="user_lastname"
+                value={formData.user_lastname}
+                onChange={handleChange}
               />
             </div>
             <div className="sm:col-span-2 border-b border-main">
-              <label className=" text-main block mb-2">Email*</label>
+              <label className="text-main block mb-2">Email*</label>
               <input
                 className="border-b border-b-transparent focus:border-b-main w-full bg-transparent outline-none pb-1"
                 type="email"
                 name="user_email"
+                value={formData.user_email}
+                onChange={handleChange}
               />
             </div>
             <div className="border-b border-main">
-              <label className=" text-main block mb-2">Teléfono</label>
+              <label className="text-main block mb-2">Teléfono</label>
               <input
                 className="border-b border-b-transparent focus:border-b-main w-full bg-transparent outline-none pb-1"
                 type="text"
                 name="user_number"
+                value={formData.user_number}
+                onChange={handleChange}
               />
             </div>
             <div className="border-b border-main">
-              <label className=" text-main block mb-2">Dirección</label>
+              <label className="text-main block mb-2">Dirección</label>
               <input
                 className="border-b border-b-transparent focus:border-b-main w-full bg-transparent outline-none pb-1"
                 type="text"
                 name="user_location"
+                value={formData.user_location}
+                onChange={handleChange}
               />
             </div>
             <button className="sm:col-span-2 p-2 w-full border border-main text-center mt-4 text-main hover:bg-main hover:text-mainSection transition-colors duration-500">
               Enviar
             </button>
-          </div>
+          </form>
           <div className="flex-row justify-center lg:justify-normal lg:flex-col gap-5 items-center flex sm:hidden lg:flex">
             <a
               href="https://www.facebook.com/EvakiaInmobiliaria/?paipv=0&eav=AfZAnAM6hqu3feFtJ1bt-FxhpLwjhUdXU3v67vLP8CNXJIFCaYqh-urOBjb1vc0Qnyw&_rdr"

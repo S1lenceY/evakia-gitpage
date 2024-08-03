@@ -18,15 +18,12 @@ import Galery15 from "/Galeria/Galery15.webp";
 import Galery16 from "/Galeria/Galery16.webp";
 import Galery17 from "/Galeria/Galery17.webp";
 import Galery18 from "/Galeria/Galery18.webp";
-import Galery19 from "/Galeria/Galery19.webp";
-import Galery20 from "/Galeria/Galery20.webp";
-import Galery21 from "/Galeria/Galery21.webp";
-import Galery22 from "/Galeria/Galery22.webp";
+
 
 const imageSets = [
-  [Galery1, Galery2, Galery12, Galery4, Galery5, Galery16],
-  [Galery11, Galery7, Galery15, Galery22, Galery8, Galery17],
-  [Galery6, Galery9, Galery10, Galery13, Galery18, Galery21],
+  [Galery1, Galery2, Galery3, Galery4, Galery5, Galery6],
+  [Galery7, Galery8, Galery9, Galery10, Galery11, Galery12],
+  [Galery13, Galery14, Galery15, Galery16, Galery17, Galery18],
 ];
 
 const Galeria = () => {
