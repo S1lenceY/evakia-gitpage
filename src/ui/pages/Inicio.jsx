@@ -15,7 +15,7 @@ const Inicio = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="flex flex-col gap-20 lg:flex-row items-center justify-center sm:justify-evenly h-screen p-5">
+      <div className="flex flex-col gap-20 lg:flex-row items-center justify-center sm:justify-evenly h-screen p-5 -translate-y-10 sm:-translate-y-0 lg:-translate-y-10">
         {/* Encabezado de INICIO */}
         <div className="flex flex-col justify-center text-white w-fit">
           <Reveal>

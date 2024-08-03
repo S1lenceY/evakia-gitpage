@@ -32,11 +32,31 @@ const Galeria = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedSet((prevIndex) => (prevIndex + 1) % imageSets.length);
-    }, 8000);
+    let interval;
 
-    return () => clearInterval(interval);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(() => {
+          setSelectedSet((prevIndex) => (prevIndex + 1) % imageSets.length);
+        }, 10000);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial interval set up
+    if (!document.hidden) {
+      interval = setInterval(() => {
+        setSelectedSet((prevIndex) => (prevIndex + 1) % imageSets.length);
+      }, 10000);
+    }
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [selectedSet]);
 
   const handleSetChange = (setIndex) => {

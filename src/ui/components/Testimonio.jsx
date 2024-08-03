@@ -28,12 +28,33 @@ const Testimonio = () => {
   const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setDirection(1);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonios.length);
-    }, 5000);
+    let interval;
 
-    return () => clearInterval(interval);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(() => {
+          setDirection(1);
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonios.length);
+        }, 5000);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial interval set up
+    if (!document.hidden) {
+      interval = setInterval(() => {
+        setDirection(1);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonios.length);
+      }, 5000);
+    }
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [currentIndex]);
 
   const handleButtonClick = (index) => {
