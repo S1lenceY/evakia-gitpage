@@ -34,14 +34,16 @@ const Root = () => {
 
   return (
     <div className="relative">
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          className={`absolute inset-0 ${backgroundClass} md:bg-cover bg-fixed`}
-        />
-      </AnimatePresence>
+      
+      <div
+        className={`absolute inset-0 ${backgroundClass} bg-cover bg-fixed`}
+      >
+        <Header />
+      </div>
+      
 
       <div className="relative z-10">
-        <Header />
+        
         <Outlet />
         <Whatsapp />
         <Footer />

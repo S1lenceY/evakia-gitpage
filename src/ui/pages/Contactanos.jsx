@@ -91,7 +91,7 @@ const Contactanos = () => {
         removeNotif={removeNotif}
       />
       <Reveal className="flex justify-center px-7 sm:pl-20 md:pl-24 h-screen">
-        <div className="flex flex-col self-center items-center text-center sm:text-start sm:items-start text-white w-full -translate-y-10">
+        <div className="flex flex-col self-center items-center text-center sm:text-start sm:items-start text-white w-full lg:translate-y-10">
           <span className="font-semibold text-lg sm:text-2xl uppercase">
             SOMOS UNA EMPRESA EN PROSPERIDAD
           </span>

@@ -44,7 +44,7 @@ const Servicios = () => {
     <div className="w-full flex flex-col font-DM">
       <div className="flex justify-center px-7 sm:px-24 h-screen">
         {/* Encabezado de CONOCENOS */}
-        <div className=" self-center  text-white w-full -translate-y-10">
+        <div className=" self-center  text-white w-full lg:translate-y-10">
           <Reveal className="flex flex-col items-center sm:items-start text-center sm:text-start">
             <span className="font-semibold text-lg sm:text-2xl uppercase">
               SIEMPRE ENFOCADOS EN TI
