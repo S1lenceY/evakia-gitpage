@@ -35,6 +35,11 @@ const ChipTabs = () => {
     }
   }, [location]);
 
+  const handleTabClick = (name) => {
+    setSelected(name);
+    window.scrollTo(0, 0); // Desplaza la página al principio
+  };
+
   return (
     <>
       {tabs.map((tab) => (
@@ -42,7 +47,7 @@ const ChipTabs = () => {
           text={tab.name}
           path={tab.path}
           selected={selected === tab.name}
-          setSelected={setSelected}
+          onClick={() => handleTabClick(tab.name)}
           key={tab.name}
           isWide={windowWidth >= 1024}
         />
@@ -51,11 +56,11 @@ const ChipTabs = () => {
   );
 };
 
-const Chip = ({ text, path, selected, setSelected, isWide }) => {
+const Chip = ({ text, path, selected, onClick, isWide }) => {
   return (
     <Link
       to={path}
-      onClick={() => setSelected(text)}
+      onClick={onClick}
       className={`${
         selected
           ? "text-white"

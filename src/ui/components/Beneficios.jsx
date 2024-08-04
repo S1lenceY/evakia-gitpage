@@ -11,7 +11,6 @@ import Parque from "/Beneficios/Parque.webp";
 import ClubPrivado from "/Beneficios/ClubPrivado.webp";
 import Reveal from "../components/Reveal";
 
-
 const servicios = [
   {
     text: "Un pórtico de entrada es una estructura arquitectónica que marca la entrada principal de un edificio, ofreciendo una primera impresión acogedora y protección contra el clima.",
@@ -66,11 +65,31 @@ const Beneficios = forwardRef((props, ref) => {
   const serviciosContainerRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % servicios.length);
-    }, 10000);
+    let interval;
+    
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(() => {
+          setActiveIndex((prevIndex) => (prevIndex + 1) % servicios.length);
+        }, 10000);
+      }
+    };
 
-    return () => clearInterval(interval);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial interval set up
+    if (!document.hidden) {
+      interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % servicios.length);
+      }, 10000);
+    }
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [activeIndex]);
 
   const handleSpanClick = (index) => {
@@ -80,7 +99,7 @@ const Beneficios = forwardRef((props, ref) => {
   const containerVariants = {
     initial: { opacity: 0, x: -20 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 20},
+    exit: { opacity: 0, x: 20 },
   };
 
   const transition = { duration: 0.5 };
@@ -95,36 +114,39 @@ const Beneficios = forwardRef((props, ref) => {
       <Reveal className="flex flex-col gap-10">
         <div className="flex flex-col gap-10" ref={serviciosContainerRef}>
           <AnimatePresence mode="wait">
-            {servicios.map((servicio, index) => (
-              index === activeIndex && (
-                <motion.div
-                  key={index}
-                  className="grid grid-cols-1 sm:grid-cols-2"
-                  variants={containerVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={transition}
-                >
-                  <div className="border border-main p-5 sm:p-8 lg:p-10 lg:text-lg items-center justify-between flex flex-col order-last sm:order-none h-full max-h-96">
-                    <p>{servicio.text}</p>
-                    <span className="self-start text-main mt-4 text-lg lg:text-xl">
-                      {servicio.type}
-                    </span>
-                  </div>
-                  {!loaded && (
-                    <div className="flex flex-col bg-mainSection h-full object-cover p-4 border border-main">
-                      <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
+            {servicios.map(
+              (servicio, index) =>
+                index === activeIndex && (
+                  <motion.div
+                    key={index}
+                    className="grid grid-cols-1 sm:grid-cols-2"
+                    variants={containerVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={transition}
+                  >
+                    <div className="border border-main p-5 sm:p-8 lg:p-10 lg:text-lg items-center justify-between flex flex-col order-last sm:order-none h-full max-h-96">
+                      <p>{servicio.text}</p>
+                      <span className="self-start text-main mt-4 text-lg lg:text-xl">
+                        {servicio.type}
+                      </span>
                     </div>
-                  )}
-                  <img
-                    src={servicio.image}
-                    className={`border border-main h-52  sm:h-96 object-cover w-full ${loaded ? "block" : "hidden"}`}
-                    onLoad={() => setLoaded(true)}
-                  />
-                </motion.div>
-              )
-            ))}
+                    {!loaded && (
+                      <div className="flex flex-col bg-mainSection h-full object-cover p-4 border border-main">
+                        <div className="bg-neutral-700/50 h-full animate-pulse rounded-md"></div>
+                      </div>
+                    )}
+                    <img
+                      src={servicio.image}
+                      className={`border border-main h-52  sm:h-96 object-cover w-full ${
+                        loaded ? "block" : "hidden"
+                      }`}
+                      onLoad={() => setLoaded(true)}
+                    />
+                  </motion.div>
+                )
+            )}
           </AnimatePresence>
         </div>
         <div className=" flex flex-row self-center gap-2 sm:gap-3">
@@ -132,7 +154,11 @@ const Beneficios = forwardRef((props, ref) => {
             <span
               key={index}
               onClick={() => handleSpanClick(index)}
-              className={`rounded-full w-7 h-7 cursor-pointer ${activeIndex === index ? "bg-main" : "bg-gray-300 hover:scale-110"}`}
+              className={`rounded-full w-7 h-7 cursor-pointer ${
+                activeIndex === index
+                  ? "bg-main"
+                  : "bg-gray-300 hover:scale-110"
+              }`}
             ></span>
           ))}
         </div>

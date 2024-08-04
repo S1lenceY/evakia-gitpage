@@ -39,11 +39,32 @@ const VentaLotes = forwardRef((props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
-    }, 10000);
+    let interval;
 
-    return () => clearInterval(interval);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(() => {
+          setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+        }, 10000);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial interval set up
+    if (!document.hidden) {
+      interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+      }, 10000);
+    }
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+
   }, [activeIndex]);
 
   const handleSpanClick = (index) => {

@@ -25,17 +25,36 @@ const Ofrecemos = forwardRef((props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
-    }, 15000);
+    let interval;
 
-    return () => clearInterval(interval);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(() => {
+          setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+        }, 15000);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial interval set up
+    if (!document.hidden) {
+      interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % ofrecen.length);
+      }, 15000);
+    }
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [activeIndex]);
 
   const handleSpanClick = (index) => {
     setActiveIndex(index);
   };
-
 
   return (
     <div ref={ref}>
@@ -79,7 +98,9 @@ const Ofrecemos = forwardRef((props, ref) => {
               key={index}
               onClick={() => handleSpanClick(index)}
               className={`rounded-full w-7 h-7 cursor-pointer ${
-                activeIndex === index ? "bg-main" : "bg-gray-300 hover:scale-110"
+                activeIndex === index
+                  ? "bg-main"
+                  : "bg-gray-300 hover:scale-110"
               }`}
             ></span>
           ))}

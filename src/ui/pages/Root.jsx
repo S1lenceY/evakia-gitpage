@@ -36,7 +36,7 @@ const Root = () => {
     <div className="relative">
       <AnimatePresence mode="popLayout">
         <motion.div
-          className={`absolute inset-0 ${backgroundClass} bg-fixed`}
+          className={`absolute inset-0 ${backgroundClass} bg-cover bg-fixed`}
         />
       </AnimatePresence>
 

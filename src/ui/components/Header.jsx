@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import LogoEvakia from "/LogoEvakia.webp";
-import { IoMenu } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { INICIO, CONOCENOS, SERVICIOS, CONTACTANOS } from "../routes/Paths";
 import ChipTabs from "./ChipTabs";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
