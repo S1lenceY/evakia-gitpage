@@ -36,7 +36,7 @@ const Root = () => {
     <div className="relative">
       
       <div
-        className={`absolute inset-0 ${backgroundClass} md:bg-cover bg-fixed`}
+        className={`absolute inset-0 ${backgroundClass} md:bg-cover bg-fixed h-lvh`}
       >
         <Header />
       </div>
