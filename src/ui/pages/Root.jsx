@@ -36,14 +36,14 @@ const Root = () => {
     <div className="relative">
       
       <div
-        className={`absolute inset-0 ${backgroundClass} md:bg-cover bg-fixed h-lvh`}
+        className={`absolute inset-0 ${backgroundClass} md:bg-cover bg-fixed`}
       >
-        <Header />
+         <Header />  
       </div>
       
-
+      
       <div className="relative z-10">
-        
+     
         <Outlet />
         <Whatsapp />
         <Footer />
