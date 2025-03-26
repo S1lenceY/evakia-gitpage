@@ -1,4 +1,4 @@
-<p align="center"><a href="https://reactjs.org" target="_blank"><img src="https://camo.githubusercontent.com/118beaba8872ecd1cc0fa048abc853d8a1717a549bd2627eade643e4a5fd66d3/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667" width="100" alt="React Logo"></a></p>
+<p align="center"><a href="https://reactjs.org" target="_blank"><img src="https://camo.githubusercontent.com/118beaba8872ecd1cc0fa048abc853d8a1717a549bd2627eade643e4a5fd66d3/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667" width="200" alt="React Logo"></a></p>
 
 # Evakia Inmobiliaria - Proyecto React + Vite
 
@@ -52,7 +52,7 @@ README.md: Documentación del proyecto
    ```bash
    npm run dev
 
-4. Abre la aplicación en tu navegador en: [http://localhost:5173](http://localhost:5173)
+4. Abre la aplicación en tu navegador en: `http://localhost:8000`.
 
 ## Tecnologías utilizadas
 
