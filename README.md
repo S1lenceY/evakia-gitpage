@@ -40,15 +40,18 @@ Configuración y otros archivos importantes:
 ## Instalación y configuración
 
 1. Clona este repositorio:
+
    ```bash
    git clone https://github.com/S1lenceY/evakia-proyecto.git
    cd evakia-proyecto
 
 2. Instala las dependencias:
+
    ```bash
    npm install
 
 3. Inicia el servidor de desarrollo:
+
    ```bash
    npm run dev
 
@@ -67,30 +70,33 @@ Configuración y otros archivos importantes:
 
 1. Galería de imágenes
 
-La página de inicio incluye una galería interactiva que muestra imágenes de proyectos destacados.
+    La página de inicio incluye una galería interactiva que muestra imágenes de proyectos destacados.
 
 2. Testimonios
 
-Sección con testimonios de clientes satisfechos, animados con Framer Motion.
+    Sección con testimonios de clientes satisfechos, animados con Framer Motion.
 
 3. Mapa interactivo
 
-Un mapa integrado con Leaflet muestra la ubicación de la empresa y permite a los usuarios obtener direcciones.
+    Un mapa integrado con Leaflet muestra la ubicación de la empresa y permite a los usuarios obtener direcciones.
 
 4. Formulario de contacto
 
-Formulario funcional que utiliza EmailJS para enviar correos electrónicos directamente desde la aplicación.
+    Formulario funcional que utiliza EmailJS para enviar correos electrónicos directamente desde la aplicación.
 
 ## Contribución
 
 Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
-Haz un fork del repositorio.
+- Haz un fork del repositorio.
 
-Crea una rama para tu funcionalidad (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y haz commit (git commit -m 'Añadir nueva funcionalidad').
-Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
-Abre un Pull Request.
+- Crea una rama para tu funcionalidad (git checkout -b feature/nueva-funcionalidad).
+
+- Realiza tus cambios y haz commit (git commit -m 'Añadir nueva funcionalidad').
+
+- Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
+
+- Abre un Pull Request.
 
 ## Licencia
 
