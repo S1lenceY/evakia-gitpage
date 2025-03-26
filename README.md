@@ -22,26 +22,26 @@ public/
 src/
 
 - ui/
-    components/: Componentes reutilizables (Galería, Footer, etc.)
-    pages/: Páginas principales (Inicio, Conócenos, Servicios, Contactanos)
-    routes/: Definición de rutas
-    styles/: Estilos globales con Tailwind CSS
+    - components/: Componentes reutilizables (Galería, Footer, etc.)
+    - pages/: Páginas principales (Inicio, Conócenos, Servicios, Contactanos)
+    - routes/: Definición de rutas
+    - styles/: Estilos globales con Tailwind CSS
 
 - main.jsx: Punto de entrada principal
 
 Configuración y otros archivos importantes:
 
-.eslintrc.cjs: Configuración de ESLint
-tailwind.config.js: Configuración de Tailwind CSS
-vite.config.js: Configuración de Vite
-package.json: Dependencias y scripts del proyecto
-README.md: Documentación del proyecto
+- .eslintrc.cjs: Configuración de ESLint
+- tailwind.config.js: Configuración de Tailwind CSS
+- vite.config.js: Configuración de Vite
+- package.json: Dependencias y scripts del proyecto
+- README.md: Documentación del proyecto
 
 ## Instalación y configuración
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/evakia-proyecto.git
+   git clone https://github.com/S1lenceY/evakia-proyecto.git
    cd evakia-proyecto
 
 2. Instala las dependencias:
@@ -56,12 +56,12 @@ README.md: Documentación del proyecto
 
 ## Tecnologías utilizadas
 
-React: Biblioteca para construir interfaces de usuario.
-Vite: Herramienta de construcción rápida para proyectos web.
-Tailwind CSS: Framework de CSS para diseño responsivo.
-Framer Motion: Biblioteca para animaciones.
-Leaflet: Biblioteca para mapas interactivos.
-EmailJS: Servicio para enviar correos electrónicos desde el frontend.
+- React: Biblioteca para construir interfaces de usuario.
+- Vite: Herramienta de construcción rápida para proyectos web.
+- Tailwind CSS: Framework de CSS para diseño responsivo.
+- Framer Motion: Biblioteca para animaciones.
+- Leaflet: Biblioteca para mapas interactivos.
+- EmailJS: Servicio para enviar correos electrónicos desde el frontend.
 
 ## Funcionalidades destacadas
 
